@@ -1,0 +1,9 @@
+[package]
+name = "magic_8"
+version = "1.0.0"
+edition = "2021"
+authors = ["Andy Baizon <dev@baizon.uk>"]
+
+[dependencies]
+colored = "2.0.4"
+rand = "0.8.5"
