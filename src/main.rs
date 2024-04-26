@@ -1,8 +1,8 @@
+use colored::Colorize;
+use magic_8::Config;
+use rand::Rng;
 use std::env;
 use std::process;
-use rand::Rng;
-use magic_8::Config;
-use colored::*;
 
 fn main() {
     let config = Config::build(env::args()).unwrap_or_else(|err| {
@@ -33,8 +33,8 @@ fn main() {
         String::from("MY SOURCES SAY NO"),
         String::from("OUTLOOK NOT SO GOOD"),
         String::from("VERY DOUBTFUL"),
-        String::from("ONLY SITH DEAL IN ABSOLUTES")
-        ];
+        String::from("ONLY SITH DEAL IN ABSOLUTES"),
+    ];
 
     let color = match num {
         0..=9 => "green",
@@ -56,7 +56,9 @@ fn main() {
     println!();
     println!("You asked the ball: {}", config.question.color("magenta"));
     println!();
-    println!("The ball has determined: {}", responses[num].color(color).blink());
+    println!(
+        "The ball has determined: {}",
+        responses[num].color(color).blink()
+    );
     println!();
-    println!("=========================================================================");
 }
