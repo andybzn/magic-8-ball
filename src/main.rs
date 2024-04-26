@@ -1,11 +1,10 @@
 use colored::Colorize;
-use magic_8::Config;
+use magic8::Config;
 use rand::Rng;
-use std::env;
 use std::process;
 
 fn main() {
-    let config = Config::build(env::args()).unwrap_or_else(|err| {
+    let config = Config::build().unwrap_or_else(|err| {
         eprintln!("{err}");
         process::exit(1);
     });
@@ -42,23 +41,32 @@ fn main() {
         _ => "red",
     };
 
-    print!("\x1B[2J\x1B[1;1H");
-    println!();
-    println!("=========================================================================");
-    println!();
-    println!("oooo     oooo      o        ooooooo8  ooooo   oooooooo8        ooooooo   ");
-    println!(" 8888o   888      888     o888    88   888  o888     88      o888   888o ");
-    println!(" 88 888o8 88     8  88    888    oooo  888  888               888888888  ");
-    println!(" 88  888  88    8oooo88   888o    88   888  888o     oo      888o   o888 ");
-    println!("o88o  8  o88o o88o  o888o  888ooo888  o888o  888oooo88         88ooo88   ");
-    println!();
-    println!("=========================================================================");
-    println!();
-    println!("You asked the ball: {}", config.question.color("magenta"));
-    println!();
-    println!(
-        "The ball has determined: {}",
-        responses[num].color(color).blink()
-    );
-    println!();
+    if config.output_only {
+        println!("{}", responses[num]);
+    } else if config.output_json {
+        println!(
+            "{{\"question\": \"{}\", \"answer\": \"{}\"}}",
+            config.question, responses[num]
+        );
+    } else {
+        print!("\x1B[2J\x1B[1;1H");
+        println!();
+        println!("=========================================================================");
+        println!();
+        println!("oooo     oooo      o        ooooooo8  ooooo   oooooooo8        ooooooo   ");
+        println!(" 8888o   888      888     o888    88   888  o888     88      o888   888o ");
+        println!(" 88 888o8 88     8  88    888    oooo  888  888               888888888  ");
+        println!(" 88  888  88    8oooo88   888o    88   888  888o     oo      888o   o888 ");
+        println!("o88o  8  o88o o88o  o888o  888ooo888  o888o  888oooo88         88ooo88   ");
+        println!();
+        println!("=========================================================================");
+        println!();
+        println!("You asked the ball: {}", config.question.color("magenta"));
+        println!();
+        println!(
+            "The ball has determined: {}",
+            responses[num].color(color).blink()
+        );
+        println!();
+    }
 }

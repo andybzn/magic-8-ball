@@ -13,15 +13,31 @@ _*No actual terms and conditions apply_
 ## Installation
 
 ```bash
-
+cargo install --git https://github.com/andybzn/magic-8-ball --bin magic8
 ```
 
 ## Usage
 
+Ask the ball a question, and an answer will be returned. 
+
 ```bash
 # Ask the ball a question
 magic8 "your question goes here"
+
+# Return just the answer text
+magic8 -a "your question goes here"
+magic8 --answer-only "will I order pizza tonight?"
+
+# Return the question and answer as a json object
+magic8 -j "your question goes here"
+magic8 --json "or will I order chinese takeout?"
 ```
+
+If a question is asked with no arguments, the returned answer will be color coded (colors use the terminal color palette) based on the tone of the answer:
+
+- Green -> good news
+- Yellow -> non-committal
+- Red -> bad juju
 
 ## Contributing
 

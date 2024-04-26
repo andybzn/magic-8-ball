@@ -1,9 +1,10 @@
 [package]
-name = "magic_8"
-version = "1.0.1"
+name = "magic8"
+version = "1.1.0"
 edition = "2021"
 authors = ["Andy Baizon <dev@baizon.uk>"]
 
 [dependencies]
+clap = { version = "4", features = ["derive"] }
 colored = "2.0.4"
 rand = "0.8.5"

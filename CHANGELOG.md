@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 02024-04-27
+
+### Added
+
+- Added the ability to return just the raw answer text with `-a` or `--answer-only`
+- Added the ability to return the answer and question as a json file using `-j` or `--json`
+
+### Changed
+
+- README update to cater for the new functionality and provide installation instructions
+- Replaced hand-rolled argument parsing with `clap::Parser`
+
 ## [1.0.1] - 02024-04-26
 
 ### Added
