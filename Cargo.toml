@@ -1,6 +1,6 @@
 [package]
 name = "magic8"
-version = "1.1.0"
+version = "1.2.0"
 edition = "2021"
 authors = ["Andy Baizon <dev@baizon.uk>"]
 
@@ -8,3 +8,9 @@ authors = ["Andy Baizon <dev@baizon.uk>"]
 clap = { version = "4", features = ["derive"] }
 colored = "2.0.4"
 rand = "0.8.5"
+
+[profile.release]
+lto = true
+strip = true
+opt-level = 3
+codegen-units = 1
