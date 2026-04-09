@@ -1,3 +1,6 @@
+> **This project has been migrated to [codeberg](https://codeberg.org/andybzn/magic-8-ball)**
+
+
 # magic8
 
 magic8 is a fun commandline utility to summon an answer from the beyond - ask your question and receive one of 21 possible answers!
